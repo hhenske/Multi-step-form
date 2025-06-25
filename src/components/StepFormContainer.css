@@ -1,0 +1,63 @@
+.step-form-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    width: 100%;
+    max-width: 600px;
+}
+
+.step-header h1 {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--blue-950)
+}
+
+.step-description {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1rem;
+    color: var(--grey-500);
+    margin-bottom: 2rem;
+}
+
+.step-content {
+    flex-grow: 1;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--blue-950);
+}
+
+.form-group input,
+.form-group select {
+    padding: 0.75rem;
+    border: 1px solid var(--grey-500);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--grey-500);
+    box-shadow: 0 0 0 2px hsla(243, 100%, 62%, 0.2);
+}
+
+.error-message {
+    color: var(--red-500);
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
