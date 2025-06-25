@@ -4,24 +4,23 @@ import './NavigationButtons.css';
 import StepOne from './StepOne';
 
 
-const NavigationButtons = () => {
+const NavigationButtons = ({ validate }) => {
     const { currentStep, setCurrentStep } = useMultiStepForm();
 
     const isFirstStep = currentStep === 1;
     const isLastStep = currentStep === 4;
 
-    const handleNext = () => {
-        if (currentStep === 1 && typeof StepOne.validate === 'function') {
-            const isValid = StepOne.validate();
-            if (!isValid) return;
-        }
-  
-        if (!isLastStep) {
-            setCurrentStep(prev => prev + 1);
-        } else {
-            alert('Form submitted!');
+   const handleNext = () => {
+    if (validate && !validate()) {
+      return;
     }
-};
+
+    if (isLastStep) {
+      alert('Form submitted!');
+    } else {
+      setCurrentStep(prev => prev + 1);
+    }
+  };
 
     const handleBack = () => {
         if (!isFirstStep) setCurrentStep(prev => prev - 1);

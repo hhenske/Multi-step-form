@@ -1,31 +1,35 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import { useMultiStepForm } from '../context/MultiStepFormContext';
 import './StepFormContainer.css';
 import NavigationButtons from './NavigationButtons';
+import StepOne from './StepOne';
+import StepTwo from './StepTwo';
+import StepThree from './StepThree';
+import StepFour from './StepFour';
+
 
 const StepFormContainer = ({ children }) => {
     const { currentStep } = useMultiStepForm();
+    const stepOneRef = useRef();
 
-    return (
-        <div className="step-form-container">
-            <div className="step-header">
-                <h1 className="step-title">
-                    {getStepTitle(currentStep)}
-                </h1>
-                <p className="step-description">
-                    {getStepDescription(currentStep)}
-                </p>
-            </div>
 
-            <div className="step-content">
-                {children}
-            </div>
+    // console.log("Current Step: ", currentStep);
 
-            <NavigationButtons />
-        </div>
-    );
-};
+    const stepComponents = [
+    <StepOne ref={stepOneRef} key="1" />, 
+    <StepTwo key="2" />,
+    <StepThree key="3" />,
+    <StepFour key="4" />,
+    ];
 
+     const validateCurrentStep = () => {
+    if (currentStep === 1) {
+        return stepOneRef.current?.validate?.() ?? true;
+  }
+    return true;
+    };
+
+    
 function getStepTitle(step) {
     switch (step) {
         case 1: return 'Personal info';
@@ -45,5 +49,27 @@ function getStepDescription(step) {
         default: return '';
     }
 }
+
+
+    return (
+        <div className="step-form-container">
+            <div className="step-header">
+                <h1 className="step-title">
+                    {getStepTitle(currentStep)}
+                </h1>
+                <p className="step-description">
+                    {getStepDescription(currentStep)}
+                </p>
+            </div>
+
+            <div className="step-content">
+                {stepComponents[currentStep - 1]}
+            </div>
+
+            <NavigationButtons  validate={validateCurrentStep} />
+        </div>
+    );
+};
+
 
 export default StepFormContainer

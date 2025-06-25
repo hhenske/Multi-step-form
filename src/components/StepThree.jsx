@@ -1,6 +1,6 @@
 import React from 'react';
 import { useMultiStepForm } from'../context/MultiStepFormContext';
-
+import './StepThree.css';
 
 const addOns = [
   {

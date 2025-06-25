@@ -51,9 +51,10 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    background-color: var(--blue-100);
+    background-color: var(--blue-50);
     padding: 0.5rem 1rem;
     border-radius: 10px;
+    font-size: .85rem;
 }
 
 .toggle-switch {

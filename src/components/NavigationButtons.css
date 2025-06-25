@@ -14,17 +14,40 @@
     flex: 1;
 }
 
+.btn-back:hover,
+.btn-back:active,
+.btn-back:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  color: var(--blue-950);
+}
+
 .btn-back {
   background: none;
   border: none;
+  outline: none;
+  box-shadow: none;
   color: var(--grey-500);
-  font-weight: 500;
-  font-size: 1rem;
+  font-weight: 700;
+  font-size: 0.85rem;
   cursor: pointer;
 }
 
 .btn-back:hover {
   color: var(--blue-950);
+  border: none;
+  outline: none;
+}
+
+btn-back:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-back:active {
+    border: none;
+    outline: none;
 }
 
 .btn-next {
@@ -34,7 +57,7 @@
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.85rem;
   cursor: pointer;
 }
 
