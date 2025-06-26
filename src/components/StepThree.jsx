@@ -27,8 +27,8 @@ const addOns = [
 ];
 
 
-function StepThree() {
-  const { formData, updateFormData } = useMultiStepForm();
+const StepThree = () => {
+    const { formData, updateFormData } = useMultiStepForm();
 
     const handleToggle = (id) => {
     const current = formData.addOns || [];
@@ -36,31 +36,36 @@ function StepThree() {
       ? current.filter(item => item !== id)
       : [...current, id];
     updateFormData({ addOns: updated });
-  };
+     };
+    
 
-  return (
-    <div className="step-form">
+    return (
+  <div className="step-form step-three">
+    <div className="addon-border">
       {addOns.map(addOn => {
         const isChecked = formData.addOns?.includes(addOn.id);
         return (
-          <label key={addOn.id} className={`addon-card ${isChecked ? 'active' : ''}`}>
+          <label key={addOn.id} className={`addon-option ${isChecked ? 'selected' : ''}`}>
             <input
               type="checkbox"
               checked={isChecked}
               onChange={() => handleToggle(addOn.id)}
             />
-            <div className="addon-info">
-              <div className="addon-title">{addOn.title}</div>
-              <div className="addon-description">{addOn.description}</div>
-            </div>
-            <div className="addon-price">
-              {formData.isMonthly ? addOn.priceMonthly : addOn.priceYearly}
+            <div className="addon-content">
+              <div className="addon-text">
+                <div className="addon-title">{addOn.title}</div>
+                <div className="addon-description">{addOn.description}</div>
+              </div>
+              <div className="addon-price">
+                {formData.isMonthly ? addOn.priceMonthly : addOn.priceYearly}
+              </div>
             </div>
           </label>
         );
       })}
     </div>
-  )
+  </div>
+);
 }
 
 

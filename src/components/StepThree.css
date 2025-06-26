@@ -2,22 +2,26 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 100%;
 }
 
 .addon-option {
-    display: flex;
-    align-items: center;
-    border: 1px solid var(--grey-300);
-    border-radius: 8px;
-    padding: 12px;
-    cursor: pointer;
-    background-color: white;
-    transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--grey-500);
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  background-color: white;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  box-sizing: border-box;
 }
+
 
 .addon-option.selected {
     background-color: var(--blue-50);
-    border-color: var(--blue-200);
 }
 
 .addon-option input[type="checkbox"] {
