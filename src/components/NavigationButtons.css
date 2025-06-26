@@ -1,0 +1,70 @@
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 500px;
+  align-items: center;
+  margin-top: auto;
+  margin-left:auto;
+  margin-right: 0;
+  padding-top: 2rem;
+}
+
+.nav-buttons .spacer {
+    flex: 1;
+}
+
+.btn-back:hover,
+.btn-back:active,
+.btn-back:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  color: var(--blue-950);
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  color: var(--grey-500);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.btn-back:hover {
+  color: var(--blue-950);
+  border: none;
+  outline: none;
+}
+
+btn-back:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-back:active {
+    border: none;
+    outline: none;
+}
+
+.btn-next {
+  background-color: var(--blue-950);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.btn-next:hover {
+  opacity: 0.9;
+}
+
+.btn-confirm {
+  background-color: var(--purple-600);
+}
