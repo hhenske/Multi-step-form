@@ -26,7 +26,7 @@ const StepOne = forwardRef((props, ref) => {
     return Object.keys(newErrors).length === 0;
   }
 
-  console.log("StepOne is rendering");
+  // console.log("StepOne is rendering");
 
   return (
   <div id="step-one" className="step-form">

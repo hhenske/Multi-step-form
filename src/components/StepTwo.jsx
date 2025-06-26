@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef, useImperativeHandle, useEffect } from 'react';
 import { useMultiStepForm } from'../context/MultiStepFormContext';
 import './StepTwo.css';
 import iconArcade from '../assets/images/icon-arcade.svg';
@@ -30,22 +30,37 @@ const plans = [
     },
 ];
 
-function StepTwo() {
+const StepTwo = forwardRef((props, ref) => {
   const { formData, updateFormData } = useMultiStepForm();
 
-  const handlePlanSelect = (id) => {
-    updateFormData({ plan: id });
+  useEffect(() => {
+  console.log("StepTwo mounted. Plan:", formData.plan);
+}, []);
+
+
+  // Expose the validate function to parent via ref
+  useImperativeHandle(ref, () => ({
+    validate,
+  }));
+
+  const validate = () => {
+    return !!formData.plan; // true if a plan is selected
+  };
+
+  const handlePlanSelect = (planId) => {
+    updateFormData({ plan: planId });
   };
 
   const toggleBilling = () => {
     updateFormData({ isMonthly: !formData.isMonthly });
   };
-
-  return (
+  console.log("Current plan: ", formData.plan);
+return (
     <div className="step-form">
       <div className="plan-options">
         {plans.map((plan) => {
           const isActive = formData.plan === plan.id;
+
           return (
             <div
               key={plan.id}
@@ -73,7 +88,6 @@ function StepTwo() {
       </div>
     </div>
   );
-}
-
+});
 
 export default StepTwo;

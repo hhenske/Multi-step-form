@@ -10,8 +10,8 @@ const NavigationButtons = ({ validate }) => {
     const isFirstStep = currentStep === 1;
     const isLastStep = currentStep === 4;
 
-   const handleNext = () => {
-    if (validate && !validate()) {
+    const handleNext = () => {
+      if (validate && !validate()) {
       return;
     }
 

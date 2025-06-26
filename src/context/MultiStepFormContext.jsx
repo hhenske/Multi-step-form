@@ -10,8 +10,8 @@ export function MultiStepFormProvider({ children }) {
         name: '',
         email: '',
         phone: '',
-        plan: '',
-        isMonthly: true
+        plan: 'arcade',
+        isMonthly: true,
     });
 
     function updateFormData(newData) {
